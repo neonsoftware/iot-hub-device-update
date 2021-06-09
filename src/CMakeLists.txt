@@ -1,9 +1,9 @@
 cmake_minimum_required (VERSION 3.5)
 
-if (ADUC_WARNINGS_AS_ERRORS)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
-endif ()
+#if (ADUC_WARNINGS_AS_ERRORS)
+#    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+#    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
+#endif ()
 
 set (COMPILER_HARDENING_FLAGS
      "-fPIE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wformat -Werror=format-security")
