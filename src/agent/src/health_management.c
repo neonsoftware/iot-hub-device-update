@@ -12,10 +12,10 @@
 
 // TODO (Nox): Consider consolidate all connectivity related code into a Connection Manager library.
 
-_Bool GetConnectionInfoFromADUConfigFile(ADUC_ConnectionInfo* info);
+bool GetConnectionInfoFromADUConfigFile(ADUC_ConnectionInfo* info);
 
 #ifdef ADUC_PROVISION_WITH_EIS
-_Bool GetConnectionInfoFromIdentityService(ADUC_ConnectionInfo* info);
+bool GetConnectionInfoFromIdentityService(ADUC_ConnectionInfo* info);
 #endif // ADUC_PROVISION_WITH_EIS
 
 /**
@@ -23,9 +23,9 @@ _Bool GetConnectionInfoFromIdentityService(ADUC_ConnectionInfo* info);
  * 
  * @return true if connection string can be obtained.
  */
-_Bool IsConnectionInfoValid(const ADUC_LaunchArguments* launchArgs)
+bool IsConnectionInfoValid(const ADUC_LaunchArguments* launchArgs)
 {
-    _Bool validInfo = false;
+    bool validInfo = false;
 
     ADUC_ConnectionInfo info = { ADUC_AuthType_NotSet, ADUC_ConnType_NotSet, NULL, NULL, NULL, NULL };
 
@@ -49,7 +49,7 @@ _Bool IsConnectionInfoValid(const ADUC_LaunchArguments* launchArgs)
  * 
  * @return true if an ADU configuration file contains simulate_unhealthy_state value (any value).
  */
-_Bool IsSimulatingUnhealthyState()
+bool IsSimulatingUnhealthyState()
 {
     char value[20];
     if (ReadDelimitedValueFromFile(ADUC_CONF_FILE_PATH, "simulate_unhealthy_state", value, ARRAY_SIZE(value)))
@@ -69,9 +69,9 @@ _Bool IsSimulatingUnhealthyState()
  * 
  * @return true if all checks passed.
  */
-_Bool HealthCheck(const ADUC_LaunchArguments* launchArgs)
+bool HealthCheck(const ADUC_LaunchArguments* launchArgs)
 {
-    _Bool isHealthy = false;
+    bool isHealthy = false;
 
     if (!IsConnectionInfoValid(launchArgs))
     {
