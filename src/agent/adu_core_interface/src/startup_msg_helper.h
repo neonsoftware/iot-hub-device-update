@@ -18,7 +18,7 @@ EXTERN_C_BEGIN
  * @param startupMsg the JSON Object which will have the device properties added to it
  * @returns true on successful addition, false on failure
  */
-_Bool StartupMsg_AddDeviceProperties(JSON_Object* startupMsg);
+bool StartupMsg_AddDeviceProperties(JSON_Object* startupMsg);
 
 EXTERN_C_END
 #endif // STARTUP_MSG_HELPER_H

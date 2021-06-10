@@ -89,7 +89,7 @@ static int g_shutdownSignal = 0;
 /**
  * @brief Function signature for PnP Handler create method.
  */
-typedef _Bool (*PnPComponentCreateFunc)(void** componentContext, int argc, char** argv);
+typedef bool (*PnPComponentCreateFunc)(void** componentContext, int argc, char** argv);
 
 /**
  * @brief Called once after connected to IoTHub (device client handler is valid).
@@ -234,7 +234,7 @@ int ParseLaunchArguments(const int argc, char** argv, ADUC_LaunchArguments* laun
         case 'l':
         {
             unsigned int logLevel = 0;
-            _Bool ret = atoui(optarg, &logLevel);
+            bool ret = atoui(optarg, &logLevel);
             if (!ret || logLevel < ADUC_LOG_DEBUG || logLevel >= ADUC_LOG_ERROR)
             {
                 puts("Invalid log level after '--log-level' or '-l' option. Expected value: 0-3.");
@@ -340,12 +340,12 @@ void ADUC_PnP_Components_Destroy()
  * @param deviceClientHandle IoTHub Device handle.
  * @param argc Command-line arguments specific to upper-level handlers.
  * @param argv Size of argc.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_PnP_Components_Create(IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClientHandle, int argc, char** argv)
+bool ADUC_PnP_Components_Create(IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClientHandle, int argc, char** argv)
 {
     Log_Info("Initalizing PnP components.");
-    _Bool succeeded = false;
+    bool succeeded = false;
     const unsigned componentCount = ARRAY_SIZE(componentList);
 
     for (unsigned index = 0; index < componentCount; ++index)
@@ -482,7 +482,7 @@ static void ADUC_ConnectionStatus_Callback(
  * @param launchArgs Launch command-line arguments.
  * @return true on success, false on failure
  */
-_Bool ADUC_DeviceClient_Create(ADUC_ConnectionInfo* connInfo, const ADUC_LaunchArguments* launchArgs)
+bool ADUC_DeviceClient_Create(ADUC_ConnectionInfo* connInfo, const ADUC_LaunchArguments* launchArgs)
 {
     IOTHUB_CLIENT_RESULT iothubResult;
     bool result = true;
@@ -604,9 +604,9 @@ void ADUC_ConnectionInfoDeAlloc(ADUC_ConnectionInfo* info)
     info->opensslPrivateKey = NULL;
 }
 
-_Bool GetConnectionInfoFromADUConfigFile(ADUC_ConnectionInfo* info)
+bool GetConnectionInfoFromADUConfigFile(ADUC_ConnectionInfo* info)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
     if (info == NULL)
     {
         goto done;
@@ -653,9 +653,9 @@ done:
 }
 
 #ifdef ADUC_PROVISION_WITH_EIS
-_Bool GetConnectionInfoFromIdentityService(ADUC_ConnectionInfo* info)
+bool GetConnectionInfoFromIdentityService(ADUC_ConnectionInfo* info)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
     if (info == NULL)
     {
         goto done;
@@ -727,11 +727,11 @@ done:
  * @details Provisions the connection string with the CLI or either 
  * the Edge Identity Service or the configuration file
  * @param launchArgs CLI arguments passed to the client
- * @returns _Bool true on success.
+ * @returns bool true on success.
  */
-_Bool StartupAgent(const ADUC_LaunchArguments* launchArgs)
+bool StartupAgent(const ADUC_LaunchArguments* launchArgs)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     ADUC_ConnectionInfo info = { NULL, NULL };
 

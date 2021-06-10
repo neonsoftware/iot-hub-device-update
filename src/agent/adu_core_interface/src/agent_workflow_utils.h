@@ -16,11 +16,11 @@
 
 EXTERN_C_BEGIN
 
-_Bool IsDuplicateRequest(ADUCITF_UpdateAction action, ADUCITF_State lastReportedState);
+bool IsDuplicateRequest(ADUCITF_UpdateAction action, ADUCITF_State lastReportedState);
 
 ADUC_ContentData* ADUC_ContentData_AllocAndInit(const JSON_Value* updateActionJson);
-_Bool ADUC_ContentData_Update(
-    ADUC_ContentData* contentData, const JSON_Value* updateActionJson, _Bool requiredAllData);
+bool ADUC_ContentData_Update(
+    ADUC_ContentData* contentData, const JSON_Value* updateActionJson, bool requiredAllData);
 void ADUC_ContentData_Free(ADUC_ContentData* contentData);
 
 EXTERN_C_END

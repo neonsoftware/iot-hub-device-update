@@ -179,7 +179,7 @@ const ADUC_WorkflowHandlerMapEntry* GetWorkflowHandlerMapEntryForAction(unsigned
  */
 ADUC_ContentData* ADUC_ContentData_AllocAndInit(const JSON_Value* updateActionJson)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
     ADUC_ContentData* newContentData = calloc(1, sizeof(ADUC_ContentData));
     if (newContentData == NULL)
     {
@@ -213,9 +213,9 @@ done:
  * @param[in,opt] requiredAllData The boolean indicates whether all data are required. Default is 'false'.
  * @return _Boolean A boolean indicates whether the content is updated successfully.
  */
-_Bool ADUC_ContentData_Update(ADUC_ContentData* contentData, const JSON_Value* updateActionJson, _Bool requiredAllData)
+bool ADUC_ContentData_Update(ADUC_ContentData* contentData, const JSON_Value* updateActionJson, bool requiredAllData)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     unsigned int desiredAction;
 
@@ -298,11 +298,11 @@ void ADUC_ContentData_Free(ADUC_ContentData* contentData)
  * @param[out] workflowData Workflow metadata.
  * @param argc Count of arguments in @p argv
  * @param argv Command line parameters.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_WorkflowData_Init(ADUC_WorkflowData* workflowData, int argc, char** argv)
+bool ADUC_WorkflowData_Init(ADUC_WorkflowData* workflowData, int argc, char** argv)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     memset(workflowData, 0, sizeof(*workflowData));
 
@@ -333,9 +333,9 @@ done:
  * @returns true if the contentData is successfully allocated and set, false if it fails to allocate the values
  * this function always returns true when it is updating a workflowData object with an existing (non-null) ContentData member
  */
-_Bool ADUC_WorkflowData_UpdateContentData(ADUC_WorkflowData* workflowData)
+bool ADUC_WorkflowData_UpdateContentData(ADUC_WorkflowData* workflowData)
 {
-    _Bool success = false;
+    bool success = false;
 
     if (workflowData->ContentData == NULL)
     {
@@ -626,7 +626,7 @@ void ADUC_Workflow_HandleUpdateAction(ADUC_WorkflowData* workflowData)
     //
 
     ADUCITF_State lastReportedState = workflowData->LastReportedState;
-    _Bool isDuplicateRequest = IsDuplicateRequest(entry->Action, lastReportedState);
+    bool isDuplicateRequest = IsDuplicateRequest(entry->Action, lastReportedState);
     if (isDuplicateRequest)
     {
         Log_Info(
@@ -837,9 +837,9 @@ static void DownloadProgressCallback(
         bytesTotal);
 }
 
-_Bool IsDuplicateRequest(ADUCITF_UpdateAction action, ADUCITF_State lastReportedState)
+bool IsDuplicateRequest(ADUCITF_UpdateAction action, ADUCITF_State lastReportedState)
 {
-    _Bool isDuplicateRequest = false;
+    bool isDuplicateRequest = false;
     switch (action)
     {
     case ADUCITF_UpdateAction_Download:

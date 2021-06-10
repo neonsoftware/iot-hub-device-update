@@ -7,7 +7,7 @@
 #ifndef ADUC_RESULT_H
 #define ADUC_RESULT_H
 
-#include <stdbool.h> // _Bool
+#include <stdbool.h> // bool
 #include <stdint.h> // int32_t
 /**
  * @brief Defines the type of an ADUC_Result.
@@ -26,7 +26,7 @@ typedef struct tagADUC_Result
 /**
  * @brief Determines if a result code is succeeded.
  */
-static inline _Bool IsAducResultCodeSuccess(const ADUC_Result_t resultCode)
+static inline bool IsAducResultCodeSuccess(const ADUC_Result_t resultCode)
 {
     return (resultCode > 0);
 }
@@ -34,7 +34,7 @@ static inline _Bool IsAducResultCodeSuccess(const ADUC_Result_t resultCode)
 /**
  * @brief Determines if a result code is failed.
  */
-static inline _Bool IsAducResultCodeFailure(const ADUC_Result_t resultCode)
+static inline bool IsAducResultCodeFailure(const ADUC_Result_t resultCode)
 {
     return (resultCode <= 0);
 }

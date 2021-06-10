@@ -149,7 +149,7 @@ done:
  * connection of the AzureDeviceUpdateCoreInterface
  * @returns true when the report is sent and false when reporting fails.
  */
-_Bool ReportStartupMsg()
+bool ReportStartupMsg()
 {
     if (g_iotHubClientHandleForADUComponent == NULL)
     {
@@ -157,7 +157,7 @@ _Bool ReportStartupMsg()
         return false;
     }
 
-    _Bool success = false;
+    bool success = false;
 
     char* jsonString = NULL;
     char* manufacturer = NULL;
@@ -209,9 +209,9 @@ done:
 // AzureDeviceUpdateCoreInterface  methods
 //
 
-_Bool AzureDeviceUpdateCoreInterface_Create(void** context, int argc, char** argv)
+bool AzureDeviceUpdateCoreInterface_Create(void** context, int argc, char** argv)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     ADUC_WorkflowData* workflowData = calloc(1, sizeof(ADUC_WorkflowData));
     if (workflowData == NULL)

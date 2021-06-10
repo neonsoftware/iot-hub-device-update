@@ -32,9 +32,9 @@ extern IOTHUB_DEVICE_CLIENT_LL_HANDLE g_iotHubClientHandleForADUComponent;
  * @param context Optional context object.
  * @param argc Count of arguments in @p argv
  * @param argv Command line parameters.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool AzureDeviceUpdateCoreInterface_Create(void** context, int argc, char** argv);
+bool AzureDeviceUpdateCoreInterface_Create(void** context, int argc, char** argv);
 
 /**
  * @brief Called after the device connected to IoT Hub (device client handler is valid).
