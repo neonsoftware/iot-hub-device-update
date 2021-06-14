@@ -7,7 +7,6 @@
 #ifndef LINUX_ADU_CORE_IMPL_HPP
 #define LINUX_ADU_CORE_IMPL_HPP
 
-#include <atomic>
 #include <exception>
 #include <thread>
 
@@ -335,7 +334,7 @@ private:
     /**
      * @brief Was Cancel called?
      */
-    std::atomic_bool _IsCancellationRequested{ false };
+    bool _IsCancellationRequested{ false };
 
     std::unique_ptr<ContentHandler> _contentHandler;
 };

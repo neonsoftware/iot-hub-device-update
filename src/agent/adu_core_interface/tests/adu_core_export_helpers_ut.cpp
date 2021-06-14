@@ -8,7 +8,6 @@
 #include <map>
 #include <sstream>
 
-#include <atomic>
 #include <chrono>
 #include <condition_variable>
 #include <thread>

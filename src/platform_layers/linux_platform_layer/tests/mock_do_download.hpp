@@ -58,7 +58,7 @@ public:
     static void download_url_to_path(
         const std::string& uri,
         const std::string& downloadFilePath,
-        const std::atomic_bool& isCancelled,
+        const bool& isCancelled,
         std::chrono::seconds timeoutSecs = std::chrono::hours(24));
 
     // Test helpers.
