@@ -5,10 +5,10 @@ cmake_minimum_required (VERSION 3.5)
 #    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
 #endif ()
 
-set (COMPILER_HARDENING_FLAGS "-fpic -fno-stack-protector")
+set (COMPILER_HARDENING_FLAGS "-fno-stack-protector")
 #     "-fPIE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wformat -Werror=format-security")
 #set (COMPILER_HARDENING_FLAGS "-fPIE")
-#set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie -z relro -z now")
+set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_HARDENING_FLAGS}")
 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMPILER_HARDENING_FLAGS} -Wall")
 
