@@ -8,7 +8,6 @@
 #pragma once
 
 #include "mock_do_download_status.hpp"
-#include <atomic>
 #include <chrono>
 #include <memory>
 #include <string>
