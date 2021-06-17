@@ -118,12 +118,12 @@ set (
 
 set (
     ADUC_DEVICEINFO_MANUFACTURER
-    "Contoso"
+    "idk"
     CACHE STRING "Manufacturer of the device.")
 
 set (
     ADUC_DEVICEINFO_MODEL
-    "Virtual Machine"
+    "G3"
     CACHE STRING "Name of the device.")
 
 #
@@ -132,12 +132,12 @@ set (
 
 set (
     ADUC_DEVICEPROPERTIES_MANUFACTURER
-    "Contoso"
+    "idk"
     CACHE STRING "Manufacturer of the device")
 
 set (
     ADUC_DEVICEPROPERTIES_MODEL
-    "Video"
+    "G3"
     CACHE STRING "Model of the device")
 
 set (
