@@ -118,12 +118,12 @@ set (
 
 set (
     ADUC_DEVICEINFO_MANUFACTURER
-    "idk"
+    "Mylight-Systems"
     CACHE STRING "Manufacturer of the device.")
 
 set (
     ADUC_DEVICEINFO_MODEL
-    "G3"
+    "MG3"
     CACHE STRING "Name of the device.")
 
 #
@@ -132,12 +132,12 @@ set (
 
 set (
     ADUC_DEVICEPROPERTIES_MANUFACTURER
-    "idk"
+    "Mylight-Systems"
     CACHE STRING "Manufacturer of the device")
 
 set (
     ADUC_DEVICEPROPERTIES_MODEL
-    "G3"
+    "MG3"
     CACHE STRING "Model of the device")
 
 set (
