@@ -335,7 +335,7 @@ private:
     /**
      * @brief Was Cancel called?
      */
-    std::atomic_bool _IsCancellationRequested{ false };
+    std::atomicbool _IsCancellationRequested{ false };
 
     std::unique_ptr<ContentHandler> _contentHandler;
 };

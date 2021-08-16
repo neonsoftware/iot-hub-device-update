@@ -97,7 +97,7 @@ void download::download_url_to_path(
 void download::download_url_to_path(
     const std::string& /*uri*/,
     const std::string& /*downloadFilePath*/,
-    const std::atomic_bool& /*isCancelled*/,
+    const std::atomicbool& /*isCancelled*/,
     std::chrono::seconds /*timeoutSecs*/)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(500));

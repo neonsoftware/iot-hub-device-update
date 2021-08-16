@@ -48,12 +48,12 @@ char _zlog_buffer[ZLOG_BUFFER_MAXLINES][ZLOG_BUFFER_LINE_MAXCHARS];
 static int _zlog_buffer_count = 0;
 static pthread_mutex_t _zlog_buffer_mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_t _zlog_flush_thread;
-static _Bool _is_flush_thread_initialized = false;
+static bool _is_flush_thread_initialized = false;
 
 void zlog_init_flush_thread(void);
 void zlog_stop_flush_thread(void);
 struct tm* get_current_utctime();
-_Bool get_current_utctime_filename(char* fullpath, size_t fullpath_len);
+bool get_current_utctime_filename(char* fullpath, size_t fullpath_len);
 static inline void _zlog_buffer_lock(void);
 static inline void _zlog_buffer_unlock(void);
 static void _zlog_flush_buffer(void);
@@ -61,7 +61,7 @@ static inline char* zlog_lock_and_get_buffer(void);
 static inline void zlog_finish_buffer_and_unlock(void);
 void zlog_ensure_at_most_n_logfiles(int max_num);
 
-static _Bool zlog_is_file_log_open()
+static bool zlog_is_file_log_open()
 {
     return zlog_fout != NULL;
 }
@@ -75,12 +75,12 @@ static void zlog_close_file_log()
     }
 }
 
-static _Bool zlog_is_stdout_a_tty()
+static bool zlog_is_stdout_a_tty()
 {
     return (isatty(fileno(stdout)) != 0);
 }
 
-static _Bool zlog_term_supports_color()
+static bool zlog_term_supports_color()
 {
     const char* term = getenv("TERM");
     if (term != NULL)
@@ -208,9 +208,9 @@ void zlog_finish(void)
 
 void zlog_log(enum ZLOG_SEVERITY msg_level, const char* func, const char* fmt, ...)
 {
-    const _Bool console_log_needed =
+    const bool console_log_needed =
         (log_setting.console_logging_mode != ZLOG_CLM_DISABLED) && (msg_level >= log_setting.console_level);
-    const _Bool file_log_needed = zlog_is_file_log_open() && (msg_level >= log_setting.file_level);
+    const bool file_log_needed = zlog_is_file_log_open() && (msg_level >= log_setting.file_level);
 
     if (!console_log_needed && !file_log_needed)
     {
@@ -384,7 +384,7 @@ static inline void _zlog_buffer_unlock(void)
     pthread_mutex_unlock(&_zlog_buffer_mutex);
 }
 
-_Bool get_current_utctime_filename(char* fullpath, size_t fullpath_len)
+bool get_current_utctime_filename(char* fullpath, size_t fullpath_len)
 {
     // Timestamp the log file
     char timebuf[sizeof("20200819-19181597864683")];

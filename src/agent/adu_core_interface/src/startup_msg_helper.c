@@ -85,7 +85,7 @@ char* DeviceProperties_GetModel()
  * @param devicePropsObj the JSON_Object the manufacturer and model will be added to
  * @returns true on successful addition and false on failure
  */
-static _Bool DeviceProperties_AddManufacturerAndModel(JSON_Object* devicePropsObj)
+static bool DeviceProperties_AddManufacturerAndModel(JSON_Object* devicePropsObj)
 {
     bool success = false;
 
@@ -149,9 +149,9 @@ const char* DeviceProperties_GetAducBuilderVersion()
     return ADUC_BUILDER_IDENTIFIER ";agent/" ADUC_VERSION;
 }
 
-static _Bool DeviceProperties_AddVersions(JSON_Object* devicePropsObj)
+static bool DeviceProperties_AddVersions(JSON_Object* devicePropsObj)
 {
-    _Bool success = false;
+    bool success = false;
     char* do_version = NULL;
     const char* aduc_version = DeviceProperties_GetAducBuilderVersion();
 
@@ -198,14 +198,14 @@ done:
  * @param startupObj the JSON Object which will have the device properties added to it
  * @returns true on successful addition, false on failure
  */
-_Bool StartupMsg_AddDeviceProperties(JSON_Object* startupObj)
+bool StartupMsg_AddDeviceProperties(JSON_Object* startupObj)
 {
     if (startupObj == NULL)
     {
         return false;
     }
 
-    _Bool success = false;
+    bool success = false;
 
     JSON_Value* devicePropsValue = json_value_init_object();
 

@@ -56,17 +56,17 @@ typedef struct tagADUC_WorkflowData
 
     ADUC_RegisterData RegisterData; /**< Upper-level registration data; function pointers, etc. */
 
-    _Bool IsRegistered; /**< True if RegisterData is valid and needs to be ultimately unregistered. */
+    bool IsRegistered; /**< True if RegisterData is valid and needs to be ultimately unregistered. */
 
-    _Bool StartupIdleCallSent; /**< True once the initial Idle call is sent to the orchestrator on agent startup. */
+    bool StartupIdleCallSent; /**< True once the initial Idle call is sent to the orchestrator on agent startup. */
 
-    _Bool OperationInProgress; /**< Is an upper-level method currently in progress? */
+    bool OperationInProgress; /**< Is an upper-level method currently in progress? */
 
     ADUC_SystemRebootState SystemRebootState; /**< The system reboot state */
 
     ADUC_AgentRestartState AgentRestartState; /**< The agent restart state */
 
-    _Bool OperationCancelled; /**< Was the operation in progress requested to cancel? */
+    bool OperationCancelled; /**< Was the operation in progress requested to cancel? */
 
     char* WorkFolder; /**< Download/Install/Apply sandbox folder */
 
@@ -75,9 +75,9 @@ typedef struct tagADUC_WorkflowData
     ADUC_ContentData* ContentData; /**< The content specific data for this workflow */
 } ADUC_WorkflowData;
 
-_Bool ADUC_WorkflowData_Init(ADUC_WorkflowData* workflowData, int argc, char** argv);
+bool ADUC_WorkflowData_Init(ADUC_WorkflowData* workflowData, int argc, char** argv);
 
-_Bool ADUC_WorkflowData_UpdateContentData(ADUC_WorkflowData* workflowData);
+bool ADUC_WorkflowData_UpdateContentData(ADUC_WorkflowData* workflowData);
 
 void ADUC_WorkflowData_DoWork(ADUC_WorkflowData* workflowData);
 

@@ -15,6 +15,6 @@
  * 
  * @return true if all checks passed.
  */
-_Bool HealthCheck();
+bool HealthCheck();
 
 #endif // ADUC_HEALTH_MANAGEMENT_H

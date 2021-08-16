@@ -140,9 +140,9 @@ void ADUC_SetInstalledUpdateIdAndGoToIdle(ADUC_WorkflowData* workflowData, const
 //
 // ADUC_PrepareInfo helpers.
 //
-_Bool ADUC_PrepareInfo_Init(ADUC_PrepareInfo* info, const ADUC_WorkflowData* workflowData)
+bool ADUC_PrepareInfo_Init(ADUC_PrepareInfo* info, const ADUC_WorkflowData* workflowData)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     // Initialize out parameter.
     memset(info, 0, sizeof(*info));
@@ -197,15 +197,15 @@ void ADUC_PrepareInfo_UnInit(ADUC_PrepareInfo* info)
  * @param[in] updateActionJson JSON with update action metadata.
  * @param[in] workFolder Sandbox to use for download, can be NULL.
  * @param[in] progressCallback Callback function for reporting download progress.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_DownloadInfo_Init(
+bool ADUC_DownloadInfo_Init(
     ADUC_DownloadInfo* info,
     const JSON_Value* updateActionJson,
     const char* workFolder,
     ADUC_DownloadProgressCallback progressCallback)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     // Initialize out parameter.
     memset(info, 0, sizeof(*info));
@@ -286,9 +286,9 @@ void ADUC_Hash_UnInit(ADUC_Hash* hash)
     hash->type = NULL;
 }
 
-_Bool ADUC_Hash_Init(ADUC_Hash* hash, const char* hashValue, const char* hashType)
+bool ADUC_Hash_Init(ADUC_Hash* hash, const char* hashValue, const char* hashType)
 {
-    _Bool success = false;
+    bool success = false;
 
     if (hash == NULL)
     {
@@ -359,7 +359,7 @@ void ADUC_UpdateId_Free(ADUC_UpdateId* updateId)
  */
 ADUC_UpdateId* ADUC_UpdateId_AllocAndInit(const char* provider, const char* name, const char* version)
 {
-    _Bool success = false;
+    bool success = false;
 
     ADUC_UpdateId* updateId = (ADUC_UpdateId*)calloc(1, sizeof(ADUC_UpdateId));
 
@@ -484,9 +484,9 @@ done:
  * @param updateId updateId to check
  * @returns True if it is valid, false if not
  */
-_Bool ADUC_IsValidUpdateId(const ADUC_UpdateId* updateId)
+bool ADUC_IsValidUpdateId(const ADUC_UpdateId* updateId)
 {
-    _Bool success = false;
+    bool success = false;
 
     if (updateId == NULL || updateId->Provider == NULL || updateId->Name == NULL || updateId->Version == NULL)
     {
@@ -532,11 +532,11 @@ void ADUC_DownloadInfo_UnInit(ADUC_DownloadInfo* info)
  *
  * @param info Object to initialize.
  * @param workFolder Sandbox to use for install, can be NULL.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_InstallInfo_Init(ADUC_InstallInfo* info, const char* workFolder)
+bool ADUC_InstallInfo_Init(ADUC_InstallInfo* info, const char* workFolder)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     // Initialize out parameter.
     memset(info, 0, sizeof(*info));
@@ -586,11 +586,11 @@ void ADUC_InstallInfo_UnInit(ADUC_InstallInfo* info)
  *
  * @param info Object to initialize.
  * @param workFolder Sandbox to use for apply, can be NULL.
- * @return _Bool True on success,.
+ * @return bool True on success,.
  */
-_Bool ADUC_ApplyInfo_Init(ADUC_ApplyInfo* info, const char* workFolder)
+bool ADUC_ApplyInfo_Init(ADUC_ApplyInfo* info, const char* workFolder)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     // Initialize out parameter.
     memset(info, 0, sizeof(*info));
@@ -639,9 +639,9 @@ void ADUC_ApplyInfo_UnInit(ADUC_ApplyInfo* info)
  * @brief Check to see if a ADUC_RegisterData object is valid.
  *
  * @param registerData Object to verify.
- * @return _Bool True if valid.
+ * @return bool True if valid.
  */
-static _Bool ADUC_RegisterData_VerifyData(const ADUC_RegisterData* registerData)
+static bool ADUC_RegisterData_VerifyData(const ADUC_RegisterData* registerData)
 {
     // Note: Okay for registerData->token to be NULL.
 

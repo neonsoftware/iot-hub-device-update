@@ -16,11 +16,11 @@
 #include <aduc/logging.h>
 #include <jws_utils.h>
 
-_Bool ADUC_JSON_GetStringField(const JSON_Value* updateActionJson, const char* jsonFieldName, char** value);
+bool ADUC_JSON_GetStringField(const JSON_Value* updateActionJson, const char* jsonFieldName, char** value);
 
 const char* ADUC_JSON_GetStringFieldPtr(const JSON_Value* updateActionJson, const char* jsonFieldName);
 
-_Bool ADUC_JSON_GetUpdateManifestStringField(
+bool ADUC_JSON_GetUpdateManifestStringField(
     const JSON_Value* updateActionJson, const char* jsonFieldName, char** value);
 
 JSON_Value* ADUC_JSON_GetUpdateManifestRoot(const JSON_Value* updateActionJson);
@@ -84,7 +84,7 @@ const char* ADUCITF_UpdateActionToString(ADUCITF_UpdateAction updateAction)
  */
 JSON_Value* ADUC_Json_GetRoot(const char* updateActionJsonString)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     JSON_Value* updateActionJson = json_parse_string(updateActionJsonString);
     if (updateActionJson == NULL)
@@ -119,9 +119,9 @@ done:
  * @param updateActionJson JSON Value created from an updateActionJsonString
  * @returns false on failure to validate and true when valid
  */
-_Bool ADUC_Json_ValidateManifestSignature(const JSON_Value* updateActionJson)
+bool ADUC_Json_ValidateManifestSignature(const JSON_Value* updateActionJson)
 {
-    _Bool success = false;
+    bool success = false;
 
     if (updateActionJson == NULL)
     {
@@ -157,9 +157,9 @@ done:
  * both the updateManifest and the updateManifestSignature
  * @returns true on success and false on failure
  */
-_Bool ADUC_Json_ValidateManifestHash(const JSON_Value* updateActionJson)
+bool ADUC_Json_ValidateManifestHash(const JSON_Value* updateActionJson)
 {
-    _Bool success = false;
+    bool success = false;
 
     JSON_Value* signatureValue = NULL;
     char* jwtPayload = NULL;
@@ -223,9 +223,9 @@ done:
  * @param updateActionJsonString JSON Value that should contain the updateManifest and updateManifestSignature
  * @return True if a valid manifest and false if not
  */
-_Bool ADUC_Json_ValidateManifest(const JSON_Value* updateActionJson)
+bool ADUC_Json_ValidateManifest(const JSON_Value* updateActionJson)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     if (!ADUC_Json_ValidateManifestSignature(updateActionJson))
     {
@@ -261,9 +261,9 @@ done:
  * @param updateAction Found value on success.
  * @return Bool Success state.
  */
-_Bool ADUC_Json_GetUpdateAction(const JSON_Value* updateActionJson, unsigned* updateAction)
+bool ADUC_Json_GetUpdateAction(const JSON_Value* updateActionJson, unsigned* updateAction)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     *updateAction = 0;
 
@@ -298,9 +298,9 @@ done:
  *
  * @param updateActionJson UpdateAction JSON to parse.
  * @param installedCriteria The returned installed criteria string. Caller must call free().
- * @return _Bool True if call was successful.
+ * @return bool True if call was successful.
  */
-_Bool ADUC_Json_GetInstalledCriteria(const JSON_Value* updateActionJson, char** installedCriteria)
+bool ADUC_Json_GetInstalledCriteria(const JSON_Value* updateActionJson, char** installedCriteria)
 {
     return ADUC_JSON_GetUpdateManifestStringField(
         updateActionJson, ADUCITF_FIELDNAME_INSTALLEDCRITERIA, installedCriteria);
@@ -325,11 +325,11 @@ _Bool ADUC_Json_GetInstalledCriteria(const JSON_Value* updateActionJson, char** 
  *
  * @param updateActionJson UpdateAction JSON to parse.
  * @param updateId The returned installed content ID string. Caller must call free().
- * @return _Bool True if call was successful.
+ * @return bool True if call was successful.
  */
-_Bool ADUC_Json_GetUpdateId(const JSON_Value* updateActionJson, ADUC_UpdateId** updateId)
+bool ADUC_Json_GetUpdateId(const JSON_Value* updateActionJson, ADUC_UpdateId** updateId)
 {
-    _Bool success = false;
+    bool success = false;
     ADUC_UpdateId* tempUpdateID = NULL;
 
     *updateId = NULL;
@@ -395,7 +395,7 @@ done:
  * @param updateTypeStr string to store the updateType in
  * @returns True on success, False on failure
  */
-_Bool ADUC_Json_GetUpdateType(const JSON_Value* updateActionJson, char** updateTypeStr)
+bool ADUC_Json_GetUpdateType(const JSON_Value* updateActionJson, char** updateTypeStr)
 {
     return ADUC_JSON_GetUpdateManifestStringField(updateActionJson, ADUCITF_FIELDNAME_UPDATETYPE, updateTypeStr);
 }
@@ -406,11 +406,11 @@ _Bool ADUC_Json_GetUpdateType(const JSON_Value* updateActionJson, char** updateT
  * @param updateActionJson The update action JSON.
  * @param jsonFieldName The name of the JSON field to get.
  * @param value The buffer to fill with the value from the JSON field. Caller must call free().
- * @return _Bool true if call succeeded. false otherwise.
+ * @return bool true if call succeeded. false otherwise.
  */
-_Bool ADUC_JSON_GetStringField(const JSON_Value* updateActionJson, const char* jsonFieldName, char** value)
+bool ADUC_JSON_GetStringField(const JSON_Value* updateActionJson, const char* jsonFieldName, char** value)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     *value = NULL;
 
@@ -473,12 +473,12 @@ const char* ADUC_JSON_GetStringFieldPtr(const JSON_Value* updateActionJson, cons
  * @param jsonFieldName The name of the updateManifest JSON field to get
  * @param value The buffer to fill with the value from the JSON field. Caller must call free()
  *
- * @return _Bool true if call succeeded. False otherwise
+ * @return bool true if call succeeded. False otherwise
  */
-_Bool ADUC_JSON_GetUpdateManifestStringField(
+bool ADUC_JSON_GetUpdateManifestStringField(
     const JSON_Value* updateActionJson, const char* jsonFieldName, char** value)
 {
-    _Bool success = false;
+    bool success = false;
 
     *value = NULL;
 
@@ -539,7 +539,7 @@ JSON_Value* ADUC_JSON_GetUpdateManifestRoot(const JSON_Value* updateActionJson)
  */
 ADUC_Hash* ADUC_HashArray_AllocAndInit(const JSON_Object* hashObj, size_t* hashCount)
 {
-    _Bool success = false;
+    bool success = false;
 
     ADUC_Hash* tempHashArray = NULL;
 
@@ -602,7 +602,7 @@ done:
  * @param downloadUri downlaodUri for @p file
  * @returns True on success and false on failure
  */
-_Bool ADUC_FileEntity_Init(
+bool ADUC_FileEntity_Init(
     ADUC_FileEntity* file,
     const char* fileId,
     const char* targetFileName,
@@ -610,7 +610,7 @@ _Bool ADUC_FileEntity_Init(
     ADUC_Hash* hashArray,
     size_t hashCount)
 {
-    _Bool success = false;
+    bool success = false;
 
     if (file == NULL)
     {
@@ -682,11 +682,11 @@ done:
  * @param updateActionJson UpdateAction Json to parse
  * @param fileCount Returned number of files.
  * @param files ADUC_FileEntity (size fileCount). Array to be freed using free(), objects must also be freed.
- * @return _Bool Success state.
+ * @return bool Success state.
  */
-_Bool ADUC_Json_GetFiles(const JSON_Value* updateActionJson, unsigned int* fileCount, ADUC_FileEntity** files)
+bool ADUC_Json_GetFiles(const JSON_Value* updateActionJson, unsigned int* fileCount, ADUC_FileEntity** files)
 {
-    _Bool succeeded = false;
+    bool succeeded = false;
 
     // Verify arguments
     if ((fileCount == NULL) || (files == NULL))

@@ -67,9 +67,9 @@ static bool GetResultAndCompareHashes(USHAContext* context, const char* hashBase
  * @param algorithm The hashing algorithm to use to calculate the hash.
  * @return bool True if the hash is valid and matches @p hashBase64
  */
-_Bool ADUC_HashUtils_IsValidFileHash(const char* path, const char* hashBase64, SHAversion algorithm)
+bool ADUC_HashUtils_IsValidFileHash(const char* path, const char* hashBase64, SHAversion algorithm)
 {
-    _Bool success = false;
+    bool success = false;
 
     FILE* file = fopen(path, "rb");
     if (file == NULL)
@@ -121,7 +121,7 @@ done:
  * @param hashBase64 The expected hash of the buffer @p buffer
  * @return bool True if the hash is valid and matches @p hashBase64
  */
-_Bool ADUC_HashUtils_IsValidBufferHash(
+bool ADUC_HashUtils_IsValidBufferHash(
     const uint8_t* buffer, size_t bufferLen, const char* hashBase64, SHAversion algorithm)
 {
     USHAContext context;
@@ -147,7 +147,7 @@ _Bool ADUC_HashUtils_IsValidBufferHash(
  * @param algorithm the destination to store the SHAversion
  * @returns True if a hash type was found, false if it was not
  */
-_Bool ADUC_HashUtils_GetShaVersionForTypeString(const char* hashTypeStr, SHAversion* algorithm)
+bool ADUC_HashUtils_GetShaVersionForTypeString(const char* hashTypeStr, SHAversion* algorithm)
 {
     bool success = true;
 

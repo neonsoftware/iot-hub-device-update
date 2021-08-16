@@ -189,17 +189,17 @@ struct tagADUC_UpdateId;
 
 JSON_Value* ADUC_Json_GetRoot(const char* updateActionJsonString);
 
-_Bool ADUC_Json_ValidateManifest(const JSON_Value* updateActionJson);
+bool ADUC_Json_ValidateManifest(const JSON_Value* updateActionJson);
 
-_Bool ADUC_Json_GetUpdateAction(const JSON_Value* updateActionJson, unsigned* updateAction);
+bool ADUC_Json_GetUpdateAction(const JSON_Value* updateActionJson, unsigned* updateAction);
 
-_Bool ADUC_Json_GetInstalledCriteria(const JSON_Value* updateActionJson, char** installedCriteria);
+bool ADUC_Json_GetInstalledCriteria(const JSON_Value* updateActionJson, char** installedCriteria);
 
-_Bool ADUC_Json_GetUpdateType(const JSON_Value* updateActionJson, char** updateTypeStr);
+bool ADUC_Json_GetUpdateType(const JSON_Value* updateActionJson, char** updateTypeStr);
 
-_Bool ADUC_Json_GetUpdateId(const JSON_Value* updateActionJson, struct tagADUC_UpdateId** updateId);
+bool ADUC_Json_GetUpdateId(const JSON_Value* updateActionJson, struct tagADUC_UpdateId** updateId);
 
-_Bool ADUC_Json_GetFiles(
+bool ADUC_Json_GetFiles(
     const JSON_Value* updateActionJson, unsigned int* fileCount, struct tagADUC_FileEntity** files);
 
 EXTERN_C_END

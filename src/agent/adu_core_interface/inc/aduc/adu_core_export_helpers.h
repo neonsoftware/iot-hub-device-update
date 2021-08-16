@@ -34,7 +34,7 @@ void ADUC_FileEntityArray_Free(unsigned int fileCount, ADUC_FileEntity* files);
  * @param hashType The type of the hash
  * @returns True if successfully allocated, False if failure
  */
-_Bool ADUC_Hash_Init(ADUC_Hash* hash, const char* hashValue, const char* hashType);
+bool ADUC_Hash_Init(ADUC_Hash* hash, const char* hashValue, const char* hashType);
 
 /**
  * @brief Free the ADUC_Hash struct members
@@ -76,7 +76,7 @@ char* ADUC_UpdateIdToJsonString(const ADUC_UpdateId* updateId);
  * @param updateId updateId to check
  * @returns True if it is valid, false if not
  */
-_Bool ADUC_IsValidUpdateId(const ADUC_UpdateId* updateId);
+bool ADUC_IsValidUpdateId(const ADUC_UpdateId* updateId);
 
 /**
  * @brief Free the UpdateId
@@ -92,10 +92,10 @@ void ADUC_UpdateId_Free(ADUC_UpdateId* updateId);
  *
  * @param info PrepareInfo object to set.
  * @param Workflow data
- * @return _Bool True on success.
+ * @return bool True on success.
  */
 
-_Bool ADUC_PrepareInfo_Init(ADUC_PrepareInfo* info, const ADUC_WorkflowData* workflowData);
+bool ADUC_PrepareInfo_Init(ADUC_PrepareInfo* info, const ADUC_WorkflowData* workflowData);
 
 /**
  * @brief Free PrepareInfo object members.
@@ -115,9 +115,9 @@ void ADUC_PrepareInfo_UnInit(ADUC_PrepareInfo* info);
  * @param updateActionJson JSON containing UpdateAction information.
  * @param workFolder Path to work folder.
  * @param progressCallback Method to call when download progress information is received.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_DownloadInfo_Init(
+bool ADUC_DownloadInfo_Init(
     ADUC_DownloadInfo* info,
     const JSON_Value* updateActionJson,
     const char* workFolder,
@@ -139,9 +139,9 @@ void ADUC_DownloadInfo_UnInit(ADUC_DownloadInfo* info);
  *
  * @param info InstallInfo object to set.
  * @param workFolder Path to work folder.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_InstallInfo_Init(ADUC_InstallInfo* info, const char* workFolder);
+bool ADUC_InstallInfo_Init(ADUC_InstallInfo* info, const char* workFolder);
 
 /**
  * @brief Free InstallInfo object members.
@@ -159,9 +159,9 @@ void ADUC_InstallInfo_UnInit(ADUC_InstallInfo* info);
  *
  * @param info Object to set.
  * @param workFolder Path to work folder.
- * @return _Bool True on success.
+ * @return bool True on success.
  */
-_Bool ADUC_ApplyInfo_Init(ADUC_ApplyInfo* info, const char* workFolder);
+bool ADUC_ApplyInfo_Init(ADUC_ApplyInfo* info, const char* workFolder);
 
 /**
  * @brief Free ApplyInfo object members.
