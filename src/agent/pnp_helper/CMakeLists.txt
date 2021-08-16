@@ -14,6 +14,6 @@ target_include_directories (
 
 target_link_digital_twin_client (${PROJECT_NAME} PUBLIC)
 
-target_link_libraries (${PROJECT_NAME} PRIVATE IotHubClient::iothub_client
+target_link_libraries (${PROJECT_NAME} PRIVATE iothub_client
                                                aduc::communication_abstraction
                                                iothub_client_mqtt_transport umqtt)

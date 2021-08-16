@@ -19,7 +19,7 @@ add_library (aduc::${target_name} ALIAS ${target_name})
 
 target_include_directories (${target_name} PUBLIC ${ADUC_EXPORT_INCLUDES})
 
-find_package (azure_c_shared_utility REQUIRED)
+#find_package (azure_c_shared_utility REQUIRED)
 
 target_compile_definitions (
     ${target_name} PRIVATE ADUC_DEVICEINFO_MANUFACTURER="${ADUC_DEVICEINFO_MANUFACTURER}"

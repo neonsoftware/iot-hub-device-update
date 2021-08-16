@@ -11,7 +11,7 @@
 
 #include <aduc/c_utils.h>
 #include <aduc/client_handle.h>
-#include <azureiot/iothub_client_core_common.h>
+#include <iothub_client_core_common.h>
 
 #include <stdbool.h>
 

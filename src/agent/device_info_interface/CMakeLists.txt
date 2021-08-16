@@ -18,4 +18,4 @@ target_link_libraries (
     ${PROJECT_NAME}
     PUBLIC aduc::c_utils
            aduc::communication_abstraction
-    PRIVATE aduc::logging aduc::pnp_helper IotHubClient::iothub_client)
+    PRIVATE aduc::logging aduc::pnp_helper iothub_client)

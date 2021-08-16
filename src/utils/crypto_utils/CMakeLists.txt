@@ -7,7 +7,7 @@ add_library (aduc::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_include_directories (${PROJECT_NAME} PUBLIC inc)
 
-find_package (azure_c_shared_utility REQUIRED)
+#find_package (azure_c_shared_utility REQUIRED)
 find_package (OpenSSL REQUIRED)
 
 target_link_libraries (

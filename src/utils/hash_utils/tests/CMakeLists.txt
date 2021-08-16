@@ -11,7 +11,7 @@ set (sources main.cpp hash_utils_ut.cpp)
 
 find_package (Catch2 REQUIRED)
 find_package (OpenSSL REQUIRED)
-find_package (azure_c_shared_utility REQUIRED)
+#find_package (azure_c_shared_utility REQUIRED)
 
 add_executable (${PROJECT_NAME} ${sources})
 

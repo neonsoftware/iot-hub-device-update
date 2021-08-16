@@ -10,6 +10,7 @@
 #include <unordered_map>
 
 #include <cstring>
+#include <string>
 
 #include <aduc/device_info_exports.h>
 

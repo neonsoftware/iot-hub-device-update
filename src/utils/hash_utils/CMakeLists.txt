@@ -9,7 +9,7 @@ target_include_directories (${PROJECT_NAME} PUBLIC inc)
 
 target_include_directories (${PROJECT_NAME} PUBLIC inc ${ADUC_EXPORT_INCLUDES})
 
-find_package (azure_c_shared_utility REQUIRED)
+#find_package (azure_c_shared_utility REQUIRED)
 target_link_libraries (
     ${PROJECT_NAME}
     PUBLIC aziotsharedutil aduc::c_utils

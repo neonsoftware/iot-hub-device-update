@@ -12,7 +12,7 @@ add_library (${target_name} STATIC ${SOURCE_ALL})
 
 add_library (aduc::${target_name} ALIAS ${target_name})
 
-find_package (Parson REQUIRED)
+#find_package (Parson REQUIRED)
 
 target_include_directories (
     ${target_name}
@@ -37,7 +37,7 @@ target_link_libraries (
             aduc::system_utils
             aduc::string_utils
             aduc::exception_utils
-            Parson::parson)
+            parson)
 
 if (ADUC_BUILD_UNIT_TESTS AND ADUC_PLATFORM_LAYER STREQUAL "linux")
     add_subdirectory (tests)

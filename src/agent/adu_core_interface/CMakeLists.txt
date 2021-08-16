@@ -17,14 +17,14 @@ add_library (aduc::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_include_directories (${PROJECT_NAME} PUBLIC inc ${ADUC_EXPORT_INCLUDES})
 target_link_digital_twin_client (${PROJECT_NAME} PUBLIC)
 
-find_package (Parson REQUIRED)
+##find_package (Parson REQUIRED)
 
 target_link_libraries (
     ${PROJECT_NAME}
     PUBLIC aduc::adu_types
            aduc::c_utils
            aduc::communication_abstraction
-           Parson::parson
+           parson
     PRIVATE aduc::hash_utils
             aduc::jws_utils
             aduc::logging

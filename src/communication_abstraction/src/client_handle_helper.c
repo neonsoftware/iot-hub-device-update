@@ -8,8 +8,8 @@
 #include "aduc/client_handle_helper.h"
 
 #include <aduc/logging.h>
-#include <azureiot/iothub_device_client_ll.h>
-#include <azureiot/iothub_module_client_ll.h>
+#include <iothub_device_client_ll.h>
+#include <iothub_module_client_ll.h>
 
 static ADUC_ConnType g_ClientHandleType = ADUC_ConnType_NotSet;
 

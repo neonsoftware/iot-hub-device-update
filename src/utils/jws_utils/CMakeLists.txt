@@ -6,15 +6,15 @@ compileasc99 ()
 add_library (${PROJECT_NAME} STATIC src/jws_utils.c)
 add_library (aduc::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
-find_package (Parson REQUIRED)
-find_package (azure_c_shared_utility REQUIRED)
+#find_package (Parson REQUIRED)
+#find_package (azure_c_shared_utility REQUIRED)
 
 target_include_directories (${PROJECT_NAME} PUBLIC inc)
 
 target_link_libraries (
     ${PROJECT_NAME}
     PUBLIC aduc::crypto_utils aduc::c_utils
-    PRIVATE Parson::parson aziotsharedutil)
+    PRIVATE parson aziotsharedutil)
 
 if (ADUC_BUILD_UNIT_TESTS)
     add_subdirectory (tests)

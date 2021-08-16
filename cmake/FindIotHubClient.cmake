@@ -23,9 +23,9 @@ if (IotHubClient_FOUND)
     set (IotHubClient_LIBRARIES ${IotHubClient_LIBRARY})
 
     if (NOT TARGET IotHubClient::iothub_client)
-        add_library (IotHubClient::iothub_client INTERFACE IMPORTED)
+        add_library (iothub_client INTERFACE IMPORTED)
         set_target_properties (
-            IotHubClient::iothub_client
+            iothub_client
             PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${IotHubClient_INCLUDE_DIRS}"
 
                        INTERFACE_LINK_LIBRARIES "${IotHubClient_LIBRARIES}")

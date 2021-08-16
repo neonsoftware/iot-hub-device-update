@@ -1,5 +1,5 @@
 # Find cmake module for the parson library and header.
-# Exports Parson::parson target
+# Exports parson target
 
 cmake_minimum_required (VERSION 3.5)
 
@@ -22,11 +22,11 @@ if (Parson_FOUND)
     set (Parson_LIBRARIES ${Parson_LIBRARY})
     set (Parson_INCLUDE_DIRS ${Parson_INCLUDE_DIR})
 
-    if (NOT TARGET Parson::parson)
-        add_library (Parson::parson
+    if (NOT TARGET parson)
+        add_library (parson
                      INTERFACE
                      IMPORTED)
-        set_target_properties (Parson::parson
+        set_target_properties (parson
                                PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
                                           "${Parson_INCLUDE_DIRS}"
                                           INTERFACE_LINK_LIBRARIES

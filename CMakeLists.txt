@@ -17,6 +17,20 @@ message (STATUS CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
 message (STATUS CMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME})
 message (STATUS)
 
+include(FetchContent)
+
+FetchContent_Declare(
+    azureiotsdk
+    GIT_REPOSITORY https://github.com/Azure/azure-iot-sdk-c.git
+    GIT_TAG 831f3c3a300d51257d803ffb31cde974f0a49867) # <- commitId of master at August 2021
+
+FetchContent_MakeAvailable(azureiotsdk)
+include_directories(${azureiotsdk_SOURCE_DIR}/deps/umock-c/inc
+${azureiotsdk_SOURCE_DIR}/deps/azure-macro-utils-c/inc
+${azureiotsdk_SOURCE_DIR}/deps/parson
+${azureiotsdk_SOURCE_DIR}/iothub_client/inc
+${azureiotsdk_SOURCE_DIR}/deps/uhttp/inc)
+
 # Tell CMake where to find our custom CMake module files.
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 

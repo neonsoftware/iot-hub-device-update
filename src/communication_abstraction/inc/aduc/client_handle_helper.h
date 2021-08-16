@@ -11,7 +11,7 @@
 #include "aduc/client_handle.h"
 #include <aduc/adu_types.h>
 #include <aduc/c_utils.h>
-#include <azureiot/iothub_client_core_common.h>
+#include <iothub_client_core_common.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <umock_c/umock_c_prod.h>
