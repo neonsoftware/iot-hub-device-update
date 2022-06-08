@@ -188,7 +188,7 @@ ADUC_Result SWUpdateHandlerImpl::Install(const tagADUC_WorkflowData* workflowDat
     // This is equivalent to: command << c_installScript << " -l " << _logFolder << " -i '" << _workFolder << "/" << filename << "'"
 
     {
-        std::string command = adushconst::adu_shell;
+        std::string command = ADUSHELL_FILE_PATH;
         std::vector<std::string> args{ adushconst::update_type_opt,
                                        adushconst::update_type_microsoft_swupdate,
                                        adushconst::update_action_opt,
@@ -243,7 +243,7 @@ ADUC_Result SWUpdateHandlerImpl::Apply(const tagADUC_WorkflowData* workflowData)
 
     // This is equivalent to : command << c_installScript << " -l " << _logFolder << " -a"
 
-    std::string command = adushconst::adu_shell;
+    std::string command = ADUSHELL_FILE_PATH;
     std::vector<std::string> args{ adushconst::update_type_opt,
                                    adushconst::update_type_microsoft_swupdate,
                                    adushconst::update_action_opt,
